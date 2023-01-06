@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
@@ -101,6 +98,36 @@ public final class FileManager {
     }
 
     /**
+     * Function which writes data from united files to one output file.
+     */
+    public void writeUnitedDataToFile() {
+        // Get absolute path to output file.
+        Path outputPathFileName = getAndPrepareOutputPathFileName();
+
+        try (BufferedWriter bufferedWriter = new BufferedWriter(
+                new FileWriter(outputPathFileName.toString(), false))
+        ) {
+            for (var path : unitedFiles) {
+                // Get all content from current file.
+                List<String> content = Files.readAllLines(path);
+
+                // Write content to output file.
+                for (var line : content) {
+                    bufferedWriter.write(line + "\n");
+                }
+
+                bufferedWriter.write('\n');
+            }
+        } catch (IOException e) {
+            ConsoleLogger.log(FileManagerLogs.NOTIFY_SYSTEM_ERROR_IOEXCEPTION_DETECTED);
+            return;
+        }
+
+        // Log success.
+        ConsoleLogger.log(FileManagerLogs.UNITED_DATA_WRITTEN_SUCCESSFULLY);
+    }
+
+    /**
      * Function which scans the entered absolute path for the directory.
      * @return Path to the directory.
      */
@@ -151,6 +178,31 @@ public final class FileManager {
 
             exit(0);
         }
+    }
+
+    /**
+     * Function which gets absolute path to the directory and makes output path filename.
+     * @return Path to the output file.
+     */
+    private Path getAndPrepareOutputPathFileName() {
+        Path path;
+
+        do {
+            ConsoleLogger.log(FileManagerLogs.ASK_TO_ENTER_OUTPUT_FILE_NAME);
+            path = scanDirectoryPathName();
+
+            if (!Files.exists(path)) {
+                ConsoleLogger.log(FileManagerLogs.NOTIFY_DIRECTORY_NOT_EXIST);
+            }
+
+            if (new File(path.toUri()).isFile()) {
+                ConsoleLogger.log(FileManagerLogs.NOTIFY_NOT_DIRECTORY_ENTERED);
+            }
+        } while (!Files.exists(path) || new File(path.toUri()).isFile());
+
+        path = path.resolve("output.txt");
+
+        return path;
     }
 
 }
