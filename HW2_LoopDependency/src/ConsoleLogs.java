@@ -60,6 +60,18 @@ public enum ConsoleLogs {
                 [Continue] -> press any key or write something to start "Loop Dependency Checker" for entered directory.
                 ->\040""";
         }
-    }
+    },
+
+    /**
+     * Notifies about all found files which will be printed below.
+     */
+    NOTIFY_ABOUT_ALL_FOUND_FILES_OUTPUT {
+        @Override
+        public String toString() {
+            return """
+                Here are all found text files:
+                """;
+        }
+    },
 
 }
