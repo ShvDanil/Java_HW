@@ -11,4 +11,12 @@ public final class ConsoleLogger {
         System.out.print(log);
     }
 
+    /**
+     * Prints the file manager log to the user's console.
+     * @param log String representation of log from enum.
+     */
+    public static void log(FileManagerLogs log) {
+        System.out.print(log);
+    }
+
 }
