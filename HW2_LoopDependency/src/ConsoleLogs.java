@@ -50,4 +50,16 @@ public enum ConsoleLogs {
         }
     },
 
+    /**
+     * Asks to enter something to continue program execution and start dependency check.
+     */
+    ASK_TO_PRESS_KEY_TO_CONTINUE_SEARCH_BY_PATH {
+        @Override
+        public String toString() {
+            return """
+                [Continue] -> press any key or write something to start "Loop Dependency Checker" for entered directory.
+                ->\040""";
+        }
+    }
+
 }
