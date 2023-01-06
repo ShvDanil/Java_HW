@@ -17,6 +17,8 @@ public class Handler {
         getRootDirectoryFromUser();
 
         askUserToContinueToStartDependencyCheck();
+
+        performDependencyCheck();
     }
 
     /**
@@ -47,5 +49,12 @@ public class Handler {
 
         System.out.println();
         ConsoleLogger.log(ConsoleLogs.LINES_SEPARATOR);
+    }
+
+    /**
+     * Function which invokes the method of dependency check in file manager.
+     */
+    private void performDependencyCheck() {
+        fileManager.traverseDirectory(fileManager.getRootDirectoryPath());
     }
 }
