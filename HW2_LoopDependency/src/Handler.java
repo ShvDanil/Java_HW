@@ -21,6 +21,8 @@ public class Handler {
         performDependencyCheck();
 
         printUnitedFilesToConsole();
+
+        writeUnitedFilesDataToFile();
     }
 
     /**
@@ -66,5 +68,12 @@ public class Handler {
     private void printUnitedFilesToConsole() {
         ConsoleLogger.log(ConsoleLogs.NOTIFY_ABOUT_ALL_FOUND_FILES_OUTPUT);
         fileManager.printUnitedFilesToConsole();
+    }
+
+    /**
+     * Function which invokes writing of data from united files to one file.
+     */
+    private void writeUnitedFilesDataToFile() {
+        fileManager.writeUnitedDataToFile();
     }
 }
