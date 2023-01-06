@@ -19,6 +19,8 @@ public class Handler {
         askUserToContinueToStartDependencyCheck();
 
         performDependencyCheck();
+
+        printUnitedFilesToConsole();
     }
 
     /**
@@ -56,5 +58,13 @@ public class Handler {
      */
     private void performDependencyCheck() {
         fileManager.traverseDirectory(fileManager.getRootDirectoryPath());
+    }
+
+    /**
+     * Function which prints all united files to the console.
+     */
+    private void printUnitedFilesToConsole() {
+        ConsoleLogger.log(ConsoleLogs.NOTIFY_ABOUT_ALL_FOUND_FILES_OUTPUT);
+        fileManager.printUnitedFilesToConsole();
     }
 }
