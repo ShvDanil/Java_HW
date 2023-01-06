@@ -38,4 +38,16 @@ public enum ConsoleLogs {
         }
     },
 
+    /**
+     * Asks to enter the absolute path to the root directory.
+     */
+    ASK_TO_ENTER_ROOT_DIRECTORY_NAME {
+        @Override
+        public String toString() {
+            return """
+                Enter root directory absolute path:
+                ->\040""";
+        }
+    },
+
 }
