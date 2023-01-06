@@ -44,4 +44,30 @@ public enum FileManagerLogs {
         }
     },
 
+    /**
+     * Notifies that during program execution the IOException was caught.
+     */
+    NOTIFY_SYSTEM_ERROR_IOEXCEPTION_DETECTED {
+        @Override
+        public String toString() {
+            return """
+                
+                [SystemError] -> IOException was detected!
+                """;
+        }
+    },
+
+    /**
+     * Notifies that in files there exists the loop dependency.
+     */
+    NOTIFY_LOOP_DEPENDENCY_FOUND {
+        @Override
+        public String toString() {
+            return """
+                [Error] -> the loop dependency was indicated! The dependencies in directory files are incorrect!
+                
+                """;
+        }
+    },
+
 }
