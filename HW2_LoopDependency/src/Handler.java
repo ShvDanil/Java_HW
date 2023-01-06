@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * The class which handles the main flow of the program and invokes necessary functions.
  */
@@ -13,6 +15,8 @@ public class Handler {
         instructUser();
 
         getRootDirectoryFromUser();
+
+        askUserToContinueToStartDependencyCheck();
     }
 
     /**
@@ -28,5 +32,20 @@ public class Handler {
      */
     private void getRootDirectoryFromUser() {
         fileManager.initRootDirectory();
+    }
+
+    /**
+     * Function which asks to write something to start dependency check.
+     */
+    private void askUserToContinueToStartDependencyCheck() {
+        ConsoleLogger.log(ConsoleLogs.LINES_SEPARATOR);
+
+        ConsoleLogger.log(ConsoleLogs.ASK_TO_PRESS_KEY_TO_CONTINUE_SEARCH_BY_PATH);
+
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
+
+        System.out.println();
+        ConsoleLogger.log(ConsoleLogs.LINES_SEPARATOR);
     }
 }
