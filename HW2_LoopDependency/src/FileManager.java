@@ -92,6 +92,15 @@ public final class FileManager {
     }
 
     /**
+     * Function which prints united files to the console.
+     */
+    public void printUnitedFilesToConsole() {
+        for (var file : unitedFiles) {
+            System.out.println(file);
+        }
+    }
+
+    /**
      * Function which scans the entered absolute path for the directory.
      * @return Path to the directory.
      */
