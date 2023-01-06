@@ -70,4 +70,44 @@ public enum FileManagerLogs {
         }
     },
 
+    /**
+     * Notifies that data was successfully written to the output file.
+     */
+    UNITED_DATA_WRITTEN_SUCCESSFULLY {
+        @Override
+        public String toString() {
+            return """
+                
+                [Success] -> the data was written successfully to files!
+                """;
+        }
+    },
+
+    /**
+     * Asks to enter the output filename where all united data will be written.
+     */
+    ASK_TO_ENTER_OUTPUT_FILE_NAME {
+        @Override
+        public String toString() {
+            return """
+                
+                Enter absolute path of output directory:
+                ->\040""";
+        }
+    },
+
+    /**
+     * Notifies that there was entered not a directory.
+     */
+    NOTIFY_NOT_DIRECTORY_ENTERED {
+        @Override
+        public String toString() {
+            return """
+                
+                [Error] -> not a directory was entered. Try again!
+                
+                """;
+        }
+    },
+
 }
